@@ -13,13 +13,15 @@ Puzzle1_v1
 from py532lib.mifare import *
 
 class RfidReader:
-   
+    
+    def __init__(self):
+        self.card = Mifare()
+        self.card.SAMconfigure()
+        self.card.set_max_retries(MIFARE_WAIT_FOR_ENTRY) 
+    
     # return uid in hexa str
     def read_uid(self):
-        card = Mifare()
-        card.SAMconfigure()
-        card.set_max_retries(MIFARE_WAIT_FOR_ENTRY) 
-        received_uid = card.scan_field()
+        received_uid = self.card.scan_field()
         return received_uid.hex().upper()
 
        
