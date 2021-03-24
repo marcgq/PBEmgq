@@ -32,7 +32,7 @@ class MainWindow(Gtk.Window):
         
         screen = Gdk.Screen.get_default()
         provider = Gtk.CssProvider()
-        provider.load_from_path("/home/pi/Puzzle1/puzzle2.css")
+        provider.load_from_path("puzzle2.css")
         Gtk.StyleContext.add_provider_for_screen(screen, provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
       
     def clear_window(self, button):
